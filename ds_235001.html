@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ボタンで挨拶と色変更</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+
+    #message {
+      margin-top: 40px;
+      font-size: 32px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button id="btn1" class="red">1</button>
+    <button id="btn2" class="blue">2</button>
+  </div>
+
+  <div id="message"></div>
+
+  <script>
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+    const message = document.getElementById('message');
+
+    // 左の赤いボタン（1）を押したとき
+    btn1.addEventListener('click', () => {
+      message.textContent = 'こんにちは';
+      message.style.color = 'black'; // 初期色
+    });
+
+    // 右の青いボタン（2）を押したとき
+    btn2.addEventListener('click', () => {
+      if (message.textContent) {
+        const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
+        message.style.color = randomColor;
+      }
+    });
+  </script>
+
+</body>
+</html>
